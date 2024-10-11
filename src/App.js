@@ -1,11 +1,12 @@
 // src/App.js
 
-function App() {
+import EventList from './components/EventList';
+import './App.css';
+
+const App = () => {
   return (
-    <div>
-      <ul id="event-list">
-        {/* Your events will go here */}
-      </ul>
+    <div className="App">
+      <EventList />
     </div>
   );
 }
