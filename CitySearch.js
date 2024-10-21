@@ -11,7 +11,6 @@ const CitySearch = ({ allLocations }) => {
     const filteredLocations = allLocations ? allLocations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     }) : [];
-
     setQuery(value);
     setSuggestions(filteredLocations);
   };
@@ -21,13 +20,12 @@ const CitySearch = ({ allLocations }) => {
     setShowSuggestions(false); // to hide the list
   };
 
-  console.log(query.filter)
   return (
     <div id="city-search">
       <input
         type="text"
         className="city"
-        placeholder="Search for a city..."
+        placeholder="Search for a city"
         value={query}
         onFocus={() => setShowSuggestions(true)}
         onChange={handleInputChanged}
@@ -37,14 +35,14 @@ const CitySearch = ({ allLocations }) => {
           {suggestions.map((suggestion) => {
             return <li onClick={handleItemClicked} key={suggestion}>{suggestion}</li>
           })}
-          <li key='See all cities'>
+          <li key='See all cities' onClick={handleItemClicked}>
             <b>See all cities</b>
           </li>
         </ul>
         : null
       }
     </div>
-  )
+ )
 }
 
 export default CitySearch;
