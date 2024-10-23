@@ -1,19 +1,20 @@
-// src/__tests__/App.test.js
-
-import { render } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import App from '../App';
 
 describe('<App /> component', () => {
-  let AppDOM;
-  beforeEach(() => {
-    AppDOM = render(<App />).container.firstChild;
-  })
-
-  test('renders list of events', () => {
-    expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
+  beforeEach(async () => {
+    await act(async () => {
+      render(<App />);  // Don't assign to AppDOM yet
+    });
   });
 
-  test('render CitySearch', () => {
-    expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
+  test('renders list of events', async () => {
+    const eventList = await screen.findByTestId('event-list');  // Assuming it has data-testid="event-list"
+    expect(eventList).toBeInTheDocument();
+  });
+
+  test('renders CitySearch', async () => {
+    const citySearch = await screen.findByTestId('city-search');  // Assuming it has data-testid="city-search"
+    expect(citySearch).toBeInTheDocument();
   });
 });
