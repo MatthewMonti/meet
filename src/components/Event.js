@@ -1,8 +1,12 @@
 // src/components/Event.js
-
-const Event = () => {
+const Event = ({event}) => {
     return (
-      <li></li>
+    <li className="event">
+      <h3>{event.summary}</h3>
+      <p>{event.start.dateTime}</p>
+      <p>{event.end.dateTime}</p>
+      <p>{event.location}</p>
+    </li>
     );
   }
   
