@@ -9,7 +9,7 @@ describe('<App /> component', () => {
   });
 
   test('renders list of events', async () => {
-    const eventList = await screen.findByTestId('event-list');  // Assuming it has data-testid="event-list"
+    const eventList = document.querySelector('#event-list');  // Assuming it has data-testid="event-list"
     expect(eventList).toBeInTheDocument();
   });
 
