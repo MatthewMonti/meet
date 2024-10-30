@@ -14,7 +14,7 @@ describe('<App /> component', () => {
   });
 
   test('renders CitySearch', async () => {
-    const citySearch = await screen.findByTestId('city-search');  // Assuming it has data-testid="city-search"
+    const citySearch = document.querySelector('#city-search');  // Assuming it has data-testid="city-search"
     expect(citySearch).toBeInTheDocument();
   });
 });
