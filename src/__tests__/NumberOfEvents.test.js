@@ -7,7 +7,7 @@ describe('<NumberOfEvents /> Component', () => {
     beforeEach(() => {
         NumberOfEventsComponent = render(
             <NumberOfEvents
-                currentNOE={35} 
+                currentNOE={32} 
                 setCurrentNOE={() => {}}
                 setErrorAlert={() => {}}
             />
@@ -19,9 +19,9 @@ describe('<NumberOfEvents /> Component', () => {
         expect(input).toBeInTheDocument();
     });
     
-    test('ensures the default value of textbox is 35', () => {
+    test('ensures the default value of textbox is 32', () => {
         const input = NumberOfEventsComponent.queryByRole('textbox');
-        expect(input).toHaveValue('35');
+        expect(input).toHaveValue('32');
     });
 
     test('textbox value changes when user updates input', async () => {
