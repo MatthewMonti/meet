@@ -22,8 +22,8 @@ const App = () => {
         ? allEvents
         : allEvents.filter(event => event.location === currentCity);
       
-      setEvents(filteredEvents);
-      setEvents(allEvents.slice(0,currentNOE));
+
+      setEvents(filteredEvents.slice(0, currentNOE));
       setAllLocations(extractLocations(allEvents)); // Extract unique locations
     } catch (error) {
       console.error("Error fetching events:", error);
