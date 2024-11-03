@@ -1,4 +1,6 @@
 import { render, screen, act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {getEvents} from '../api';
 import App from '../App';
 
 describe('<App /> component', () => {
@@ -9,12 +11,12 @@ describe('<App /> component', () => {
   });
 
   test('renders list of events', async () => {
-    const eventList = document.querySelector('#event-list');  // Assuming it has data-testid="event-list"
+    const eventList = screen.queryByTestId('event-list');  // Assuming it has data-testid="event-list"
     expect(eventList).toBeInTheDocument();
   });
 
   test('renders CitySearch', async () => {
-    const citySearch = document.querySelector('#city-search');  // Assuming it has data-testid="city-search"
+    const citySearch = screen.queryByTestId('city-search');  // Assuming it has data-testid="city-search"
     expect(citySearch).toBeInTheDocument();
   });
 });
