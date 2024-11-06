@@ -1,10 +1,18 @@
-.App {
+html {
   text-align: center;
+  background-color: bisque;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+button{
+  background-color: blue;
+  padding:10px;
+  color:white;
+  font-size:14px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -22,6 +30,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+input{
+  padding:10px;
+  border-radius:5px;
 }
 
 .App-link {
