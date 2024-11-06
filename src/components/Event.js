@@ -9,7 +9,7 @@ const Event = ({event}) => {
       <p>{event.location}</p>
       <p>{event.start.dateTime}</p>
       <p>{event.end.dateTime}</p>
-      <Button />
+      <Button event={event} />
     </li>
     );
   }
