@@ -1,5 +1,5 @@
 import Button from './Button'
-
+import '../App.css'
 
 // src/components/Event.js
 const Event = ({event}) => {

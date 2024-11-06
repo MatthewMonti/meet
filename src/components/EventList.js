@@ -1,7 +1,7 @@
 // src/components/EventList.js
 
 import Event from "./Event";
-
+import '../App.css'
 const EventList = ({ events }) => {
  return (
    <ul data-testid="event-list">

@@ -1,7 +1,7 @@
 // src/components/CitySearch.js
 
 import { useState, useEffect } from "react";
-
+import '../App.css'
 const CitySearch = ({ allLocations, setCurrentCity }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
