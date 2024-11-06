@@ -1,6 +1,6 @@
 // src/__tests__/EventList.test.js
 
-import { render, within, waitFor, screen } from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 import EventList from '../components/EventList';
 import { getEvents } from '../api';
 import App from '../App.js'
