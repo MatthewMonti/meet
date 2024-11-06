@@ -1,6 +1,18 @@
 html {
   text-align: center;
-  background-color: bisque;
+  background-color: white;
+}
+
+img{
+  height: 150px;
+  width: 150px;
+  padding-bottom: 50px;
+}
+
+
+h3, li.event{
+  color: black;
+  opacity: 1;
 }
 
 .App-logo {
