@@ -1,3 +1,6 @@
+import Button from './Button'
+
+
 // src/components/Event.js
 const Event = ({event}) => {
     return (
@@ -6,6 +9,7 @@ const Event = ({event}) => {
       <p>{event.start.dateTime}</p>
       <p>{event.end.dateTime}</p>
       <p>{event.location}</p>
+      <Button />
     </li>
     );
   }

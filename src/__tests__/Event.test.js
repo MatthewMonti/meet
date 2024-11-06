@@ -22,6 +22,11 @@ describe('<Event /> component', () => {
     expect(eventSummary).toBeInTheDocument();
   });
 
+  test('event location is displayed', () => {
+    const eventLocation = EventComponent.queryByText(event.location);
+    expect(eventLocation).toBeInTheDocument();
+  });
+
   test('event start time is displayed', () => {
     const eventStartTime = EventComponent.queryByText(event.start.dateTime);
     expect(eventStartTime).toBeInTheDocument();
@@ -30,10 +35,5 @@ describe('<Event /> component', () => {
   test('event end time is displayed', () => {
     const eventEndTime = EventComponent.queryByText(event.end.dateTime);
     expect(eventEndTime).toBeInTheDocument();
-  });
-
-  test('event location is displayed', () => {
-    const eventLocation = EventComponent.queryByText(event.location);
-    expect(eventLocation).toBeInTheDocument();
   });
 });
