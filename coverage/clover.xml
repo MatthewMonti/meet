@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1729742449153" clover="3.2.0">
-  <project timestamp="1729742449153" name="All files">
-    <metrics statements="12" coveredstatements="11" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2" elements="20" coveredelements="18" complexity="0" loc="12" ncloc="12" packages="1" files="1" classes="1"/>
-    <file name="NumberOfEvents.js" path="/Users/matthewmonti/Documents/meet/src/components/NumberOfEvents.js">
-      <metrics statements="12" coveredstatements="11" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="7" type="stmt"/>
-      <line num="6" count="7" type="stmt"/>
-      <line num="7" count="4" type="stmt"/>
-      <line num="8" count="4" type="stmt"/>
-      <line num="9" count="4" type="cond" truecount="4" falsecount="0"/>
-      <line num="10" count="3" type="stmt"/>
-      <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="12" count="0" type="stmt"/>
-      <line num="14" count="1" type="stmt"/>
-      <line num="15" count="1" type="stmt"/>
-      <line num="19" count="7" type="stmt"/>
+<coverage generated="1730941907205" clover="3.2.0">
+  <project timestamp="1730941907205" name="All files">
+    <metrics statements="23" coveredstatements="22" conditionals="4" coveredconditionals="3" methods="7" coveredmethods="7" elements="34" coveredelements="32" complexity="0" loc="23" ncloc="23" packages="1" files="2" classes="2"/>
+    <file name="App.js" path="/Users/matthewmonty/Documents/meet/src/App.js">
+      <metrics statements="17" coveredstatements="16" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
+      <line num="9" count="3" type="stmt"/>
+      <line num="10" count="12" type="stmt"/>
+      <line num="11" count="12" type="stmt"/>
+      <line num="12" count="12" type="stmt"/>
+      <line num="13" count="12" type="stmt"/>
+      <line num="14" count="12" type="stmt"/>
+      <line num="17" count="12" type="stmt"/>
+      <line num="19" count="6" type="stmt"/>
+      <line num="20" count="6" type="stmt"/>
+      <line num="21" count="6" type="stmt"/>
+      <line num="22" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="24" count="35" type="stmt"/>
+      <line num="25" count="6" type="stmt"/>
+      <line num="26" count="6" type="stmt"/>
+      <line num="28" count="0" type="stmt"/>
+      <line num="31" count="6" type="stmt"/>
+      <line num="34" count="12" type="stmt"/>
+    </file>
+    <file name="api.js" path="/Users/matthewmonty/Documents/meet/src/api.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="14" count="315" type="stmt"/>
+      <line num="15" count="9" type="stmt"/>
+      <line num="16" count="9" type="stmt"/>
+      <line num="23" count="3" type="stmt"/>
+      <line num="24" count="11" type="stmt"/>
     </file>
   </project>
 </coverage>

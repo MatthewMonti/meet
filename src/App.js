@@ -33,7 +33,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Meetup App</h1><img className="time"src={calendar}></img>
+      <h1>Meetup App</h1><img className="time" alt="meet-logo"src={calendar}></img>
       {errorAlert && <div className="alert">{errorAlert}</div>}
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
       <NumberOfEvents 
