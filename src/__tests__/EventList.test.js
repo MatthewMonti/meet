@@ -5,19 +5,19 @@ import EventList from '../components/EventList';
 import { getEvents } from '../api';
 import App from '../App.js'
 describe('<EventList /> component', () => {
-   let EventListComponent;
+   let eventListComponent;
  beforeEach(() => {
-   EventListComponent = render(<EventList />);
+   eventListComponent = render(<EventList />);
  })
 
   test('has an element with "list" role', () => {
-    expect(EventListComponent.queryByRole("list")).toBeInTheDocument();
+    expect(eventListComponent.queryByRole("list")).toBeInTheDocument();
   });
 
   test('renders correct number of events', async () => {
     const allEvents = await getEvents(); 
-    EventListComponent.rerender(<EventList events={allEvents} />);
-    expect(EventListComponent.getAllByRole("listitem")).toHaveLength(allEvents.length);
+    eventListComponent.rerender(<EventList events={allEvents} />);
+    expect(eventListComponent.getAllByRole("listitem")).toHaveLength(allEvents.length);
   });
 
 });

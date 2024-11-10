@@ -24,19 +24,19 @@ describe('<App /> component', () => {
     const user = userEvent.setup();
   
     // Type "Berlin" into the city search input
-    const CitySearchDOM = screen.queryByTestId('city-search');
-    const CitySearchInput = within(CitySearchDOM).queryByRole('textbox');
-    await user.type(CitySearchInput, "Berlin");
+    const citySearchDOM = screen.queryByTestId('city-search');
+    const citySearchInput = within(citySearchDOM).queryByRole('textbox');
+    await user.type(citySearchInput, "Berlin");
   
     // Click on the Berlin suggestion
-    const berlinSuggestionItem = within(CitySearchDOM).queryByText('Berlin, Germany');
+    const berlinSuggestionItem = within(citySearchDOM).queryByText('Berlin, Germany');
     await user.click(berlinSuggestionItem);
   
     // Wait for events to load and find all list items (events)
-    const EventListDOM = screen.queryByTestId('event-list');
+    const eventListDOM = screen.queryByTestId('event-list');
   
     // Use `findAllByRole` to wait for async rendering
-    const allRenderedEventItems = await within(EventListDOM).findAllByRole('listitem');   
+    const allRenderedEventItems = await within(eventListDOM).findAllByRole('listitem');   
   
     // Get all events and filter for Berlin events
     const allEvents = await getEvents();
