@@ -97,41 +97,6 @@ describe('<CitySearch /> integration', () => {
     citySearchComponent = render(<CitySearch allLocations={[]} />);
   });
 
-  //TEST FAILED UNRESOLVED
-  /*
-  test('results match city searched', async () => {
-    const user = userEvent.setup();
-
-    // Step 1: Render the component with mock data
-    render(<CitySearch allLocations={['London, UK', 'Berlin, Germany', 'See all cities']} />);
-
-    // Step 2: Get the search input element
-    const searchInput = await screen.findByTestId('search-input');
-
-    // Step 3: Type 'London, UK' into the search input
-    await user.type(searchInput, 'London, UK');
-
-    // Step 4: Wait for the filtered items to appear based on the search term
-    await waitFor(() => {
-      const filteredItems = screen.getAllByTestId('filtered-cities'); // Assuming filtered city items have this test id
-      expect(filteredItems.length).toBeGreaterThan(0); // Expect to see at least one filtered item
-      expect(filteredItems[1]).toHaveTextContent('London, UK'); // Check if the first filtered item is 'London, UK'
-    });
-
-    // Step 5: Simulate a click on the filtered city (e.g., 'London, UK')
-    const filteredCityItem = screen.getByText('London, UK'); // Get the city item you want to click
-    await user.click(filteredCityItem);
-
-    // Step 6: Assert that the city search input was updated with the selected city
-    expect(searchInput.value).toBe('London, UK'); // Expect the input to contain the selected city
-
-    // Step 7: Check if the results match the city searched
-    const results = screen.queryAllByTestId('results'); // Assuming you have a 'results' data-testid for the list
-    expect(results).toHaveLength([]); // Expect one result to be shown
-    expect(results[1]).toHaveTextContent('London, UK'); // Ensure that the result contains the correct city
-  });
-
-*/
   
   test('renders suggestions list when the app is rendered.', async () => {
     const user = userEvent.setup();
