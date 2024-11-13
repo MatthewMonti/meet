@@ -19,6 +19,15 @@ describe('<App /> component', () => {
     const citySearch = screen.queryByTestId('city-search');  
     expect(citySearch).toBeInTheDocument();
   });
+});
+
+
+describe('<App /> component', () => {
+  beforeEach(async () => {
+    await act(async () => {
+      render(<App />);  // Don't assign to AppDOM yet
+    });
+  });
 
   test('renders a list of events matching the city selected by the user', async () => {
     const user = userEvent.setup();

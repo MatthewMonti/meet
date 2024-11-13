@@ -23,9 +23,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     setCurrentCity(value);
   };
 
-  useEffect(() => {
-    setSuggestions(allLocations);
-  }, [allLocations]);
+  useEffect(() => { setSuggestions(allLocations); }, [`${allLocations}`]);
 
   return (
     <div data-testid="city-search">

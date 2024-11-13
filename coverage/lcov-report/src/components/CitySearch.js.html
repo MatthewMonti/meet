@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.42% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/7</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/21</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
@@ -117,54 +117,48 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">86x</span>
-<span class="cline-any cline-yes">86x</span>
-<span class="cline-any cline-yes">86x</span>
+<span class="cline-any cline-yes">74x</span>
+<span class="cline-any cline-yes">74x</span>
+<span class="cline-any cline-yes">74x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">86x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">58x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">74x</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">86x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">86x</span>
-<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">74x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">86x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">74x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -180,7 +174,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useEffect } from "react";
 import '../App.css';
 &nbsp;
-const CitySearch = ({ allLocations =<span class="branch-0 cbranch-no" title="branch not covered" >[],</span> setCurrentCity }) =&gt; {
+const CitySearch = ({ allLocations, setCurrentCity }) =&gt; {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -202,9 +196,7 @@ const CitySearch = ({ allLocations =<span class="branch-0 cbranch-no" title="bra
     setCurrentCity(value);
   };
 &nbsp;
-  useEffect(() =&gt; {
-    setSuggestions(allLocations);
-  }, [allLocations]);
+  useEffect(() =&gt; { setSuggestions(allLocations); }, [`${allLocations}`]);
 &nbsp;
   return (
     &lt;div data-testid="city-search"&gt;
@@ -217,18 +209,17 @@ const CitySearch = ({ allLocations =<span class="branch-0 cbranch-no" title="bra
         onChange={handleInputChanged}
         data-testid="search-input"
       /&gt;
-      {showSuggestions &amp;&amp; (
-        &lt;ul className="suggestions"&gt;
-          {suggestions.map((suggestion, index) =&gt; (
-            &lt;li data-testid="filtered-cities" onClick={handleItemClicked} key={index}&gt;
-              {suggestion}
-            &lt;/li&gt;
-          ))}
-          &lt;li key="See all cities" data-testid="results" onClick={handleItemClicked}&gt;
-            &lt;b&gt;See all cities&lt;/b&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      )}
+      {showSuggestions ?
+       &lt;ul className="suggestions"&gt;
+         {suggestions.map((suggestion) =&gt; {
+           return &lt;li onClick={handleItemClicked} key={suggestion}&gt;{suggestion}&lt;/li&gt;
+         })}
+         &lt;li key='See all cities' onClick={handleItemClicked}&gt;
+           &lt;b&gt;See all cities&lt;/b&gt;
+         &lt;/li&gt;
+       &lt;/ul&gt;
+       : null
+     }
     &lt;/div&gt;
   );
 };
@@ -241,7 +232,7 @@ export default CitySearch;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-11-09T20:29:47.353Z
+                at 2024-11-13T04:44:20.943Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

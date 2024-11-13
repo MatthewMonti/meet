@@ -1,6 +1,6 @@
 // src/__tests__/CitySearch.test.js
 
-import { render, within, waitFor} from '@testing-library/react';
+import { render, within, waitFor, screen, fireEvent} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CitySearch from '../components/CitySearch';
 import { extractLocations, getEvents } from '../api';
@@ -10,6 +10,23 @@ describe('<CitySearch /> component', () => {
   let citySearchComponent;
   beforeEach(() => {
     citySearchComponent = render(<CitySearch allLocations={[]} />);
+  });
+  test('shows only "See all cities" when typing a city not in the list', () => {
+  
+    // Simulate typing a city that does not exist in the list (e.g., "Paris, France")
+    fireEvent.change(screen.getByTestId('search-input'), {
+      target: { value: 'Paris, France' }
+    });
+  
+    // Get the suggestions list (should be visible after typing)
+    const suggestionsList = document.querySelector('.suggestions');
+  
+    // Get all the list items in the suggestions list
+    const suggestionItems = suggestionsList.querySelectorAll('li');
+  
+    // Assert that the suggestions list contains only one item: "See all cities"
+    expect(suggestionItems.length).toBe(1); // Only one suggestion item should be shown
+    expect(suggestionItems[0].textContent).toBe('See all cities'); // It should be "See all cities"
   });
 
 

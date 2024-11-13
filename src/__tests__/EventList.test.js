@@ -32,6 +32,6 @@ describe('<EventList /> integration', () => {
 
         const eventListItems = screen.queryAllByRole('listitem');
         
-        expect(eventListItems.length);
+        expect(eventListItems.length).toBe(32);
     });  
 });
