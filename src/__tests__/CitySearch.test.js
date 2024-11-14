@@ -114,6 +114,12 @@ describe('<CitySearch /> integration', () => {
     citySearchComponent = render(<CitySearch allLocations={[]} />);
   });
 
+  test('test if meetings events are filter by city', () => { 
+    fireEvent.change(screen.getByTestId)('search-input'), 
+    { target: {value: "London, UK"} } 
+    const eventMeetingList = document.querySelector('')
+  });
+
   
   test('renders suggestions list when the app is rendered.', async () => {
     const user = userEvent.setup();
