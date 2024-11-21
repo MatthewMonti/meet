@@ -32,14 +32,14 @@ describe('<App /> component', () => {
   test('renders a list of events matching the city selected by the user', async () => {
     const user = userEvent.setup();
   
-    // Type "Berlin" into the city search input
+    // Type "London" into the city search input
     const citySearchDOM = screen.queryByTestId('city-search');
     const citySearchInput = within(citySearchDOM).queryByRole('textbox');
-    await user.type(citySearchInput, "Berlin");
+    await user.type(citySearchInput, "London");
   
-    // Click on the Berlin suggestion
-    const berlinSuggestionItem = within(citySearchDOM).queryByText('Berlin, Germany');
-    await user.click(berlinSuggestionItem);
+    // Click on the London suggestion
+    const londonSuggestionItem = within(citySearchDOM).queryByText('London, UK');
+    await user.click(londonSuggestionItem);
   
     // Wait for events to load and find all list items (events)
     const eventListDOM = screen.queryByTestId('event-list');
@@ -47,14 +47,14 @@ describe('<App /> component', () => {
     // Use `findAllByRole` to wait for async rendering
     const allRenderedEventItems = await within(eventListDOM).findAllByRole('listitem');   
   
-    // Get all events and filter for Berlin events
+    // Get all events and filter for London events
     const allEvents = await getEvents();
-    const berlinEvents = allEvents.filter(
-      event => event.location === 'Berlin, Germany'
+    const londonEvents = allEvents.filter(
+      event => event.location === 'London, UK'
     );
   
-    // Check that the number of rendered events matches the Berlin events
-    expect(allRenderedEventItems.length).toBe(berlinEvents.length);
+    // Check that the number of rendered events matches the London events
+    expect(allRenderedEventItems.length).toBe(londonEvents.length);
   });
 
 });
