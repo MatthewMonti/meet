@@ -1,11 +1,10 @@
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import { act } from 'react';
 import {render, within, waitFor, screen } from '@testing-library/react';
-import App from '../App';
+import App from '../App.js';
 import {getEvents} from '../api.js';
 import userEvent from '@testing-library/user-event';
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
-
 defineFeature(feature, test => {
     test('When user hasn’t searched for a city, show upcoming events from all cities.', ({ given, when, then }) => {
       given('user hasn’t searched for any city', () => {
