@@ -1,6 +1,11 @@
-Feature: Display Events in EventList Component
+Feature: Specificy Number of Events
 
-  Scenario: Display the correct number of events
-    Given the EventList component is mounted
-    When the page is loaded
-    Then the EventList should display exactly 35 events
+  Scenario: When user has not specified a number, 32 events are shown by default.
+    Given user on main page 
+    When number in event count textbox default set to 32 
+    Then the number of events displayed is exactly 35 events
+
+  Scenario: User can change the number of events displayed
+    Given clicks on texbox with event number count
+    When user changes the number of events
+    Then page displays number of events user prefers displayed
