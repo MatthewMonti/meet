@@ -1,9 +1,9 @@
 Feature: Show and Hide Event Details
 
-  Scenario: City suggestion list is collapsed by default
+  Scenario: Details of Event is hidden by default
     Given user is on default homepage
-    When user has not search for city or change number of event count
-    Then suggestion list with list of cities and option to see all cities is hidden
+    When has not toggled button on event details
+    Then event details hidden
 
   Scenario: Show event details
     Given the user is viewing the EventList
