@@ -6,6 +6,6 @@ Feature: Specificy Number of Events
     Then the number of events displayed is exactly 32 events
 
   Scenario: User can change the number of events displayed
-    Given clicks on texbox with event number count
+    Given clicks on textbox with event number count
     When user changes the number of events
     Then page displays number of events user prefers displayed
