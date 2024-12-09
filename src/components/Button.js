@@ -8,9 +8,9 @@ const Button = ({ event }) => {
   };
 
   return (
-    <div data-testid="Details">
-      {details ? null : <p>{event.description}</p> }
-      <button onClick={toggleDetails}>
+    <div data-testid="Details" >
+      {details ? null : <p className="eventDetails">{event.description}</p> }
+      <button className="detailsButton" onClick={toggleDetails}>
         {details ? "Show Details" : "Hide Details"}
       </button>
     </div>
