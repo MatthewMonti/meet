@@ -48,9 +48,6 @@ const CitySearch = ({ allLocations, setCurrentCity, setErrorCity, errorCity }) =
         onChange={handleInputChanged}
         data-testid="search-input"
       />
-      <li>
-        {errorCity}
-      </li>
       {showSuggestions && (
         <ul>
           {suggestions.map((suggestion) => (
