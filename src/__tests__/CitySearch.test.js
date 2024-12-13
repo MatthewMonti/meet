@@ -6,10 +6,23 @@ import CitySearch from '../components/CitySearch';
 import { extractLocations, getEvents } from '../api';
 import App from '../App';
 
-describe('<CitySearch /> component', () => {
+describe('<CitySearch /> component', ()  => {
+  let allLocations;
   let citySearchComponent;
+
+  // Fetch data before running any tests
+  beforeAll(async () => {
+    const allEvents = await getEvents(); // Fetch all events
+    allLocations = extractLocations(allEvents); // Extract locations
+  });
+
   beforeEach(() => {
-    citySearchComponent = render(<CitySearch allLocations={[]} />);
+    citySearchComponent = render(
+      <CitySearch 
+        allLocations={allLocations} 
+        setErrorCity={() => {}} 
+      />
+    );
   });
   test('shows only "See all cities" when typing a city not in the list', () => {
   
@@ -52,9 +65,6 @@ describe('<CitySearch /> component', () => {
 
   test('updates list of suggestions correctly when user types in city textbox', async () => {
     const user = userEvent.setup();
-    const allEvents = await getEvents();
-    const allLocations = extractLocations(allEvents);
-    citySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
 
     // User types "Berlin" in city textbox
     const cityTextBox = citySearchComponent.queryByRole('textbox');
@@ -79,6 +89,7 @@ describe('<CitySearch /> component', () => {
     citySearchComponent.rerender(<CitySearch 
       allLocations={allLocations} 
       setCurrentCity={() => {}}
+      setErrorCity={() => {}}
     />);
 
     const cityTextBox = citySearchComponent.queryByRole('textbox');
@@ -109,11 +120,23 @@ describe('<CitySearch /> component', () => {
 });
 
 describe('<CitySearch /> integration', () => {
+  let allLocations;
   let citySearchComponent;
-  beforeEach(() => {
-    citySearchComponent = render(<CitySearch allLocations={[]} />);
+
+  // Fetch data before running any tests
+  beforeAll(async () => {
+    const allEvents = await getEvents(); // Fetch all events
+    allLocations = extractLocations(allEvents); // Extract locations
   });
 
+  beforeEach(() => {
+    citySearchComponent = render(
+      <CitySearch 
+        allLocations={allLocations} 
+        setErrorCity={() => {}} 
+      />
+    );
+  });
   
   test('renders suggestions list when the app is rendered.', async () => {
     const user = userEvent.setup();

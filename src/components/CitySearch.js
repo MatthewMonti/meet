@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import '../App.css';
 
-const CitySearch = ({ allLocations, setCurrentCity}) => {
+const CitySearch = ({ allLocations, setCurrentCity, setErrorCity}) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const [errorCity, setErrorCity] = useState('')
 
   const handleInputChanged = (event) => {
     const city = event.target.value;
@@ -54,6 +53,7 @@ const CitySearch = ({ allLocations, setCurrentCity}) => {
         onChange={handleInputChanged}
         data-testid="search-input"
       />
+
       {showSuggestions && (
         <ul className="suggestions">
           {suggestions.map((suggestion) => (
