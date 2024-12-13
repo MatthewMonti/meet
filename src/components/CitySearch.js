@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import '../App.css';
 
-const CitySearch = ({ allLocations, setCurrentCity, setErrorCity, errorCity }) => {
+const CitySearch = ({ allLocations, setCurrentCity, errorCity, setErrorCity}) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -14,7 +14,7 @@ const CitySearch = ({ allLocations, setCurrentCity, setErrorCity, errorCity }) =
       ? allLocations.filter((location) => location.toUpperCase().includes(city.toUpperCase()))
       : [];
 
-    // Validate city input
+  //  // Validate city input
     if (!filteredLocations.length && city) {
       setErrorCity("Check spelling or not in database");
     } else {
@@ -23,6 +23,10 @@ const CitySearch = ({ allLocations, setCurrentCity, setErrorCity, errorCity }) =
 
     setQuery(city);
     setSuggestions(city ? filteredLocations : []);
+
+    //SUGGESTIONS LIST SHOWN = TEXT IN SEARCHBOX. 
+    //This was causes the errors with CitySearch Tests
+    setShowSuggestions(city.length > 0); 
   };
 
   const handleItemClicked = (event) => {
@@ -44,12 +48,13 @@ const CitySearch = ({ allLocations, setCurrentCity, setErrorCity, errorCity }) =
         className="city"
         placeholder="Search for a city"
         value={query}
+        // SUGGESTION LIST SHOWN = CLICK INPUT TEXTBOX"
         onFocus={() => setShowSuggestions(true)}
         onChange={handleInputChanged}
         data-testid="search-input"
       />
       {showSuggestions && (
-        <ul>
+        <ul className="suggestions">
           {suggestions.map((suggestion) => (
             <li onClick={handleItemClicked} key={suggestion}>
               {suggestion}
