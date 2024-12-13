@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import '../App.css';
 
-const CitySearch = ({ allLocations, setCurrentCity, errorCity, setErrorCity}) => {
+const CitySearch = ({ allLocations, setCurrentCity}) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [errorCity, setErrorCity] = useState('')
 
   const handleInputChanged = (event) => {
     const city = event.target.value;
