@@ -1,5 +1,5 @@
 import { loadFeature, defineFeature } from 'jest-cucumber';
-import { render, screen, within, fireEvent, waitFor, act } from '@testing-library/react';
+import { render, screen, within, act } from '@testing-library/react';
 import App from '../App'; // Adjust path based on your directory structure
 import userEvent from '@testing-library/user-event';
 import {getEvents} from '../api.js';

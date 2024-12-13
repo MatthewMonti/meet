@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-import {screen} from '@testing-library/react';
+
 describe('show/hide event details', () => {
   let browser;
   let page;
