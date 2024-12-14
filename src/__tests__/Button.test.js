@@ -12,12 +12,6 @@ describe('<Button /> component', () => {
     expect(button).toBeInTheDocument();
   });
 
- // test('renders event details', () => {
- //   const DetailsDOM = screen.queryByTestId('Details');
- ///   const allRenderedEventItems = within(DetailsDOM).queryAllByRole('listitem');
- //   expect(allRenderedEventItems.length).toBeGreaterThan(0); // Ensure items exist
- // });
-
   test('button toggles event details visibility and changes text', async () => {
     const eventDescription = 'Test event description.';
 
