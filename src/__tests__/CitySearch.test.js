@@ -20,6 +20,7 @@ describe('<CitySearch /> component', ()  => {
     citySearchComponent = render(
       <CitySearch 
         allLocations={allLocations} 
+        setCurrentCity={() => {}}
         setErrorCity={() => {}} 
       />
     );
@@ -86,11 +87,6 @@ describe('<CitySearch /> component', ()  => {
     const user = userEvent.setup();
     const allEvents = await getEvents(); 
     const allLocations = extractLocations(allEvents);
-    citySearchComponent.rerender(<CitySearch 
-      allLocations={allLocations} 
-      setCurrentCity={() => {}}
-      setErrorCity={() => {}}
-    />);
 
     const cityTextBox = citySearchComponent.queryByRole('textbox');
     await user.type(cityTextBox, "Berlin");
