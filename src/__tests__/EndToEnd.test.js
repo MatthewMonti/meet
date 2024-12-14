@@ -1,10 +1,11 @@
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import Button from '../components/Button';
 import puppeteer from 'puppeteer';
+describe('<Button /> component', () => {
 
-describe('show/hide event details', () => {
   let browser;
   let page;
-
-  beforeAll(async () => {
+  beforeEach(async () => {
     browser = await puppeteer.launch({
       headless: false,
       slowMo: 250, // slow down by 250ms,
@@ -13,77 +14,39 @@ describe('show/hide event details', () => {
     page = await browser.newPage();
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('.event');
+    render(<Button event={{ description: 'Test event description.' }} />);
   });
 
-  test('An event element is collapsed by default', async () => {
-    // Wait for the event container to load
-    await page.waitForSelector('.event');
+  test('button renders and toggles event details visibility', async () => {
+    const button = await screen.findByText('Show Details');
+    expect(button).toBeInTheDocument();
 
-    // Locate the Details container
-    const detailsContainer = await page.$('[data-testid="Details"]');
+    // Initially, the event description should not be visible
+    let eventDetails = screen.queryByText('Test event description.');
+    
+    // Instead of expecting null, check if the details are an empty object
+    expect(eventDetails).toBeNull(); // Or you can check if it is not found ({} represents the absence of the element)
 
-    // Query for the <p> tag inside the Details container
-    const detailsParagraph = await detailsContainer?.$('p');
+    // Click the button to show the details
+    fireEvent.click(button);
 
-    // Assert that the <p> tag is not present (collapsed by default)
-    expect(detailsParagraph).toBeNull();
+    // After the click, the event description should appear
+    eventDetails = screen.getByText('Test event description.');
+    expect(eventDetails).toBeInTheDocument();
+
+    // The button text should now be 'Hide Details'
+    expect(screen.getByText('Hide Details')).toBeInTheDocument();
+
+    // Click the button again to hide the details
+    fireEvent.click(screen.getByText('Hide Details'));
+
+    // After clicking, the event description should be hidden again
+    eventDetails = screen.queryByText('Test event description.');
+    
+    // Instead of expecting null, check for empty object
+    expect(eventDetails).toBeNull(); // Ensures that the element is not found and is not rendered
+    
+    // The button text should revert back to 'Show Details'
+    expect(screen.getByText('Show Details')).toBeInTheDocument();
   });
-
-  test('User can expand an event to see its details', async () => {
-    const browser = await puppeteer.launch();
-    try {
-      const page = await browser.newPage();
-      await page.goto('http://localhost:3000/');
-  
-      // Wait for the event container to appear
-      await page.waitForSelector('.event');
-  
-      // Locate the button with the text 'Show Details'
-      const button = await page.$x("//button[contains(., 'Show Details')]");
-      expect(button.length).toBeGreaterThan(0); // Ensure the button exists
-      await button[0].click(); // Click the first button matching the criteria
-  
-      // Locate the Details container by its data-testid
-      const detailsContainer = await page.$('[data-testid="Details"]');
-      expect(detailsContainer).toBeDefined();
-  
-      // Query for the <p> tag inside the Details container
-      const detailsParagraph = await detailsContainer?.$('p');
-      expect(detailsParagraph).toBeDefined();
-    } finally {
-      await browser.close(); // Ensure the browser is closed properly
-    }
-  });
-
-  test('User can collapse an event to hide details', async () => {
-    const browser = await puppeteer.launch();
-    try {
-      const page = await browser.newPage();
-      await page.goto('http://localhost:3000/');
-  
-      // Wait for the event container to appear
-      await page.waitForSelector('.event');
-  
-      // Locate and click the "Show Details" button to expand details
-      const showButton = await page.$x("//button[contains(., 'Show Details')]");
-      expect(showButton.length).toBeGreaterThan(0); // Ensure the button exists
-      await showButton[0].click(); // Click the first "Show Details" button
-  
-      // Ensure the <p> element is displayed
-      const detailsParagraph = await page.$('[data-testid="Details"] > p');
-      expect(detailsParagraph).toBeDefined(); // Confirm <p> exists after expanding
-  
-      // Locate and click the "Hide Details" button to collapse details
-      const hideButton = await page.$x("//button[contains(., 'Hide Details')]");
-      expect(hideButton.length).toBeGreaterThan(0); // Ensure the button exists
-      await hideButton[0].click(); // Click the first "Hide Details" button
-  
-      // Check if the <p> element has been removed from the DOM
-      const detailsParagraphAfterHide = await page.$('[data-testid="Details"] > p');
-      expect(detailsParagraphAfterHide).toBeNull(); // Confirm <p> is removed
-    } finally {
-      await browser.close(); // Ensure the browser is closed properly
-    }
-  });
-
 });
