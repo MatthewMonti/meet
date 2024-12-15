@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import '../App.css';
 
-const CitySearch = ({ allLocations, setCurrentCity, setErrorCity}) => {
+const CitySearch = ({ allLocations, setCurrentCity}) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -13,14 +13,6 @@ const CitySearch = ({ allLocations, setCurrentCity, setErrorCity}) => {
     const filteredLocations = allLocations
       ? allLocations.filter((location) => location.toUpperCase().includes(city.toUpperCase()))
       : [];
-
-  //  // Validate city input
-    if (!filteredLocations.length && city) {
-      setErrorCity("Check spelling or not in database");
-    } else {
-      setErrorCity("");
-    }
-
     setQuery(city);
     setSuggestions(city ? filteredLocations : []);
 
@@ -34,7 +26,6 @@ const CitySearch = ({ allLocations, setCurrentCity, setErrorCity}) => {
     setQuery(value);
     setShowSuggestions(false); // Hide suggestions
     setCurrentCity(value);
-    setErrorCity(""); // Clear error on valid selection
   };
 
   useEffect(() => {

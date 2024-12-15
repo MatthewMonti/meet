@@ -12,7 +12,6 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [currentNOE, setCurrentNOE] = useState('32');
   const [errorAlert, setErrorAlert] = useState([]);
-  const [errorCity, setErrorCity] = useState([]);
 
   // Trigger fetching when the city changes
   useEffect(() => {
@@ -37,9 +36,7 @@ const App = () => {
       <h1>Meetup App</h1><img className="time" alt="meet-logo"src={calendar}></img>
       <CitySearch 
         allLocations={allLocations} 
-        setCurrentCity={setCurrentCity} 
-        setErrorCity={setErrorCity} />
-        {errorCity && <div className="alert">{errorCity}</div>}
+        setCurrentCity={setCurrentCity} />
       <NumberOfEvents 
         currentNOE={currentNOE}
         setCurrentNOE={setCurrentNOE}

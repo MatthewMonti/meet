@@ -21,7 +21,6 @@ describe('<CitySearch /> component', ()  => {
       <CitySearch 
         allLocations={allLocations} 
         setCurrentCity={() => {}}
-        setErrorCity={() => {}} 
       />
     );
   });
@@ -129,7 +128,6 @@ describe('<CitySearch /> integration', () => {
     citySearchComponent = render(
       <CitySearch 
         allLocations={allLocations} 
-        setErrorCity={() => {}} 
       />
     );
   });
