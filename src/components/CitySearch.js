@@ -33,7 +33,8 @@ const CitySearch = ({ allLocations, setCurrentCity}) => {
   }, [allLocations]);
 
   return (
-    <div data-testid="city-search">
+    <div id="citySearch" data-testid="city-search">
+      <h4>Choose your nearest city </h4>
       <input
         type="text"
         className="city"
@@ -47,14 +48,16 @@ const CitySearch = ({ allLocations, setCurrentCity}) => {
 
       {showSuggestions && (
         <ul className="suggestions">
-          {suggestions.map((suggestion) => (
-            <li onClick={handleItemClicked} key={suggestion}>
-              {suggestion}
+          <div className="listCities">
+            {suggestions.map((suggestion) => (
+              <li className="cityName" onClick={handleItemClicked} key={suggestion}>
+                {suggestion}
+              </li>
+            ))}
+            <li className="cityName" key="See all cities" onClick={handleItemClicked}>
+              <b>See all cities</b>
             </li>
-          ))}
-          <li key="See all cities" onClick={handleItemClicked}>
-            <b>See all cities</b>
-          </li>
+          </div>
         </ul>
       )}
     </div>

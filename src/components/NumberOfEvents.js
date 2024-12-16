@@ -29,16 +29,17 @@ const NumberOfEvents = ({ currentNOE, setCurrentNOE, setErrorAlert }) => {
     };
 
     return (
-        <div data-testid="number-of-events">
-            <label>
+        <div id="numberSearch" data-testid="number-of-events">
+            <p>
                 Number of Events:
+                </p>
                 <input 
+                    className="eventNumber"
                     type="text"
                     value={number}
                     onChange={handleInputChanged}
                     data-testid="NumberOfEventsInput"
                 />
-            </label>
         </div>
     );
 };
