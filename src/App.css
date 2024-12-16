@@ -6,7 +6,6 @@ html {
 img{
   height: 150px;
   width: 150px;
-  padding-bottom: 50px;
 }
 
 
@@ -87,17 +86,18 @@ li.event{
   padding-bottom: 20px;
   margin-left:auto;
   margin-right:auto;
-  max-width:700px;
+  max-width:675px;
   list-style:none;
 }
 h3,p{
   padding-left:10px;
 }
-p{
-  padding-right: 580px;
+p.eventAttribute{
+  padding-right: 440px;
 }
+  
 p.eventDetails{
-  padding-right:20px
+  padding-right:10px
 }
 
 button{
@@ -107,23 +107,72 @@ button{
 }
 
 
-@media (max-width: 430px) {
+@media (min-width: 300px) {
 
   ul.list-event{
     margin-left:auto;
     margin-right:auto;
   }
+
   li.event{
+    border: 2px solid rgb(223, 223, 223);       /* Dark grey on the left */
+    padding-bottom: 20px;
+    margin-left:auto;
+    margin-right:auto;
     max-width:200px;
+    list-style:none;
+  }
+
+  h3,p{
+    padding-left:10px;
+  }
+  p.eventAttribute{
+    padding-right: 1px;
+  }
+
+  p{
+    padding-right: 10px;
+  }
+
+  button{
+    float: right;
+    margin-left:1px;
+    display:inline
+  }
+}
+
+
+@media (min-width: 700px) {
+
+  ul.list-event{
     margin-left:auto;
     margin-right:auto;
   }
 
-  p{
-    padding-right: 100px;
+  li.event{
+    border: 2px solid rgb(223, 223, 223);       /* Dark grey on the left */
+    padding-bottom: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    max-width:599px;
+    list-style:none;
   }
-  .eventDetails{
-    max-width: 200px; 
+
+  h3,p{
+    padding-left:10px;
+  }
+  p.eventAttribute{
+    padding-right: 366px;
+  }
+
+  p{
+    padding-right: 10px;
+  }
+
+  button{
+    float: right;
+    margin-left:100px;
+    display:inline
   }
 }
 

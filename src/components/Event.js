@@ -6,9 +6,9 @@ const Event = ({event}) => {
     return (
     <li className="event">
       <h3>{event.summary}</h3>
-      <p>{event.location}</p>
-      <p>{event.start.dateTime}</p>
-      <p>{event.end.dateTime}</p>
+      <p className="eventAttribute">{event.location}</p>
+      <p className="eventAttribute">{event.start.dateTime}</p>
+      <p className="eventAttribute">{event.end.dateTime}</p>
       <Button event={event} />
     </li>
     );
