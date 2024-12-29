@@ -27,7 +27,6 @@ h4{
   text-align:center;
 }
 #citySearch{
-  position: relative;
   width: 250px;
   margin-left:auto;
   margin-right:auto;
@@ -46,7 +45,7 @@ h4{
   list-style: none; /* Remove bullets */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
-  position: absolute; /* Position relative to the search bar */
+  position: relative; /* Position relative to the search bar */
   top: 100%; /* Place directly below the search bar */
   left: 0; /* Align left edge with search bar */
   width: 100%; /* Match width of search bar */
