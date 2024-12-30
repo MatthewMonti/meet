@@ -9,17 +9,18 @@ const CitySearch = ({ allLocations, setCurrentCity}) => {
 
   const handleInputChanged = (event) => {
     const city = event.target.value;
-
-    // Filter locations based on user input
-    const filteredLocations = allLocations
-      ? allLocations.filter((location) => location.toUpperCase().includes(city.toUpperCase()))
-      : [];
     setQuery(city);
-    setSuggestions(city ? filteredLocations : []);
-
-    //SUGGESTIONS LIST SHOWN = TEXT IN SEARCHBOX. 
-    //This was causes the errors with CitySearch Tests
-    setShowSuggestions(city.length > 0); 
+  
+    if (city === "") {
+      setSuggestions(allLocations); // Show all locations when input is empty
+    } else {
+      const filteredLocations = allLocations.filter((location) =>
+        location.toUpperCase().includes(city.toUpperCase())
+      );
+      setSuggestions(filteredLocations); // Set filtered suggestions
+    }
+  
+    setShowSuggestions(true); // Ensure dropdown is displayed
   };
 
   const handleItemClicked = (event) => {
@@ -60,12 +61,20 @@ const CitySearch = ({ allLocations, setCurrentCity}) => {
       {showSuggestions && (
         <ul className="suggestions" ref={SuggestionListRef}>
           <div className="listCities">
-            {suggestions.map((suggestion) => (
-              <li className="cityName" onClick={handleItemClicked} key={suggestion}>
+            {suggestions.map((suggestion, index) => (
+              <li 
+                className="cityName" 
+                onClick={handleItemClicked} 
+                key={`${suggestion}-${index}`}
+                >
                 {suggestion}
               </li>
             ))}
-            <li className="cityName" key="See all cities" onClick={handleItemClicked}>
+            <li 
+              className="cityName" 
+              key="See all cities" 
+              onClick={handleItemClicked}
+              >
               <b>See all cities</b>
             </li>
           </div>
