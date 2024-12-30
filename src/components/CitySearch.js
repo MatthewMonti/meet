@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import '../App.css';
 
 const CitySearch = ({ allLocations, setCurrentCity}) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const SuggestionListRef = useRef(null)
 
   const handleInputChanged = (event) => {
     const city = event.target.value;
@@ -28,9 +29,19 @@ const CitySearch = ({ allLocations, setCurrentCity}) => {
     setCurrentCity(value);
   };
 
-  useEffect(() => {
-    setSuggestions(allLocations || []);
-  }, [allLocations]);
+ // Handle clicking outside the dropdown
+ useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (SuggestionListRef.current && !SuggestionListRef.current.contains(event.target)) {
+      setShowSuggestions(false); // Hide suggestions when clicking outside
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
 
   return (
     <div id="citySearch" data-testid="city-search">
@@ -47,7 +58,7 @@ const CitySearch = ({ allLocations, setCurrentCity}) => {
       />
 
       {showSuggestions && (
-        <ul className="suggestions">
+        <ul className="suggestions" ref={SuggestionListRef}>
           <div className="listCities">
             {suggestions.map((suggestion) => (
               <li className="cityName" onClick={handleItemClicked} key={suggestion}>
