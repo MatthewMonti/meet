@@ -62,7 +62,7 @@ h4{
   transition: background-color 0.2s ease;
 }
 .suggestions li:hover {
-  background-color: #93e4e4d4; /* Highlight on hover */
+  background-color: #A7D7D4; /* Highlight on hover */
 }
 
 #numberSearch{
