@@ -8,7 +8,7 @@ const Button = ({ event }) => {
   };
 
   return (
-    <div data-testid="Details" >
+    <div className="eventButton" data-testid="Details" >
             {details ? null : <p className="eventDetails">{event.description}</p> }
            <button className="detailsButton" onClick={toggleDetails}>
         {details ? "show details" : "hide details"}
