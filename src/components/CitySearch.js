@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import '../App.css';
 
-const CitySearch = ({ allLocations, setCurrentCity }) => {
+const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState(allLocations);
@@ -9,18 +9,22 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
 
   const handleInputChanged = (event) => {
     const city = event.target.value.trim();  // Ensure spaces are treated as empty
-    setQuery(city);
     
-    if (city === "") {
-      setSuggestions(allLocations); // Show all locations when input is empty or only spaces
-    } else {
-      const filteredLocations = allLocations.filter((location) =>
-        location.toUpperCase().includes(city.toUpperCase())
-      );
-      setSuggestions(filteredLocations); // Set filtered suggestions
-    }
+    const filteredLocations = allLocations ? allLocations.filter((location) => {
+      return location.toUpperCase().indexOf(city.toUpperCase()) > -1;
+    }) : [];
 
-    setShowSuggestions(true); // Ensure dropdown is displayed
+    setQuery(city);
+    setSuggestions(filteredLocations);
+
+    let infoText;
+    if (filteredLocations.length === 0) {
+      infoText = "We can not find the city you are looking for. Please try another city"
+    } else {
+      infoText = ""
+    }
+    setInfoAlert(infoText);
+
   };
 
   const handleItemClicked = (event) => {
@@ -28,6 +32,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     setQuery(value);
     setShowSuggestions(false); // Hide suggestions
     setCurrentCity(value);
+    setInfoAlert("")
   };
 
   // Handle clicking outside the dropdown
@@ -46,7 +51,6 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
 
   return (
     <div id="citySearch" data-testid="city-search">
-      <h4>Choose your nearest city</h4>
       <input
         type="text"
         className="city"
