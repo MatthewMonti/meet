@@ -30,10 +30,21 @@ h4{
 }
 
 
-.alerts-container {
-  position: fixed;
-  top: 220px;
-  left: 280px;
+.cityError-Message {
+  float: left;
+  top: 0px;
+  margin-top: -55px;
+  margin-left: 200px;
+  width: 250px;
+  z-index: 1000;
+}
+
+
+.cityNumber-Message {
+  float:left;
+  top: 0px;
+  margin-left: 240px;
+  margin-top: -50px;
   width: 250px;
   z-index: 1000;
 }

@@ -5,13 +5,13 @@ import NumberOfEvents from './components/NumberOfEvents'
 import { getEvents, extractLocations } from './api';
 import './App.css';
 import calendar from './calendar.png';
-import { InfoAlert } from './components/Alert'
+import { InfoAlert, ErrorAlert } from './components/Alert'
 const App = () => {
   const [events, setEvents] = useState([]);
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [currentNOE, setCurrentNOE] = useState('32');
-  const [errorAlert, setErrorAlert] = useState([]);
+  const [errorAlert, setErrorAlert] = useState("");
   const [infoAlert, setInfoAlert] = useState("")
 
   // Trigger fetching when the city changes
@@ -36,20 +36,23 @@ const App = () => {
     <div className="App">
       <h1>Meetup App</h1>
       <img className="time" alt="meet-logo"src={calendar}></img>
-
+     
       <CitySearch 
         allLocations={allLocations} 
         setCurrentCity={setCurrentCity} 
         setInfoAlert={setInfoAlert} 
         />
-      <div className="alerts-container">
+      <div className="cityError-Message">
         {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
       </div>
       <NumberOfEvents 
         currentNOE={currentNOE}
         setCurrentNOE={setCurrentNOE}
-        setErrorAlert={setErrorAlert} />
-        {errorAlert && <div className="alert">{errorAlert}</div>}
+        setErrorAlert={setErrorAlert} 
+        />
+      <div className="cityNumber-Message">
+        {errorAlert ? <ErrorAlert text={errorAlert}/> : null}
+      </div>
       <EventList events={events} />
     </div>
   );
