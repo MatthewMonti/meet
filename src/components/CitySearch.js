@@ -57,10 +57,10 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
 
   return (
     <div id="citySearch" data-testid="city-search">
+        <h3>Choose your nearest city</h3>
       <input
         type="text"
         className="city"
-        placeholder="Search for a city"
         value={query}
         onFocus={() => {
           // Show all suggestions when input is focused and the query is empty

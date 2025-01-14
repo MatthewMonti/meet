@@ -36,15 +36,14 @@ const App = () => {
     <div className="App">
       <h1>Meetup App</h1>
       <img className="time" alt="meet-logo"src={calendar}></img>
-     
+      <div className="cityError-Message">
+        {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
+      </div>
       <CitySearch 
         allLocations={allLocations} 
         setCurrentCity={setCurrentCity} 
         setInfoAlert={setInfoAlert} 
         />
-      <div className="cityError-Message">
-        {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
-      </div>
       <NumberOfEvents 
         currentNOE={currentNOE}
         setCurrentNOE={setCurrentNOE}
