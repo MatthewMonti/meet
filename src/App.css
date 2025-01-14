@@ -30,24 +30,7 @@ h4{
 }
 
 
-.cityError-Message {
-  position:absolute;
-  top: 270px;
-  margin-top: -55px;
-  margin-left: 80px;
-  width: 250px;
-  z-index: 1000;
-}
 
-
-.cityNumber-Message {
-  position:absolute;
-  top: 370px;
-  margin-left: 150px;
-  margin-top: -50px;
-  width: 200px;
-  z-index: 1000;
-}
 
 #citySearch{
   position: relative;
@@ -138,6 +121,23 @@ button{
 
 
 @media (min-width: 300px) {
+  
+  .cityError-Message {
+    margin-top: 50px;;
+    width: 250px;
+    z-index: 1000;
+    margin-left:60px;
+  }
+  
+  
+  .cityNumber-Message {
+    width: 200px;
+    z-index: 1000;
+    margin-left:90px;
+  }
+
+
+
   li.event {
     max-width: 200px; /* Still fixed but make sure it’s appropriate for small screens */
     width: 100%; /* Ensure it respects the container width */
