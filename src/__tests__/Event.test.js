@@ -1,9 +1,15 @@
 import Event from "../components/Event";
-import {render} from '@testing-library/react';
 import mockData from "../mock-data";
-
+import { render, screen } from '@testing-library/react';
 const event = mockData[0];
 
+const formattedStartTime = new Date(event.start.dateTime).toLocaleString('en-US', {
+  timeZone: event.start.timeZone,
+});
+
+const formattedEndTime = new Date(event.end.dateTime).toLocaleString('en-US', {
+  timeZone: event.end.timeZone,
+});
 
 describe('<Event /> component', () => {
   let eventComponent;
@@ -26,13 +32,14 @@ describe('<Event /> component', () => {
     expect(eventLocation).toBeInTheDocument();
   });
 
-  test('event start time is displayed', () => {
-    const eventStartTime = eventComponent.queryByText(event.start.dateTime);
-    expect(eventStartTime).toBeInTheDocument();
-  });
+test('event start time is displayed', () => {
+  const eventStartTime = screen.queryByText(`${event.start.dateTime} ${event.start.timeZone}`);
+  expect(eventStartTime).toBeInTheDocument();
+});
 
-  test('event end time is displayed', () => {
-    const eventEndTime = eventComponent.queryByText(event.end.dateTime);
-    expect(eventEndTime).toBeInTheDocument();
-  });
+test('event end time is displayed', () => {
+  const eventEndTime = screen.queryByText(`${event.end.dateTime} ${event.end.timeZone}`);
+  expect(eventEndTime).toBeInTheDocument();
+});
+  
 });

@@ -21,27 +21,25 @@ describe('<CitySearch /> component', ()  => {
       <CitySearch 
         allLocations={allLocations} 
         setCurrentCity={() => {}}
+        setInfoAlert={() => { }}
       />
     );
   });
-  test('shows only "See all cities" when typing a city not in the list', () => {
+
+
+  test('shows only "See all cities" when typing a city not in the list', async () => {
+    // Simulate typing a city that does not exist in the list
+    const user = userEvent.setup();
+    const cityTextBox = screen.getByTestId('search-input');
+    await user.type(cityTextBox, 'Paris, France');
   
-    // Simulate typing a city that does not exist in the list (e.g., "Paris, France")
-    fireEvent.change(screen.getByTestId('search-input'), {
-      target: { value: 'Paris, France' }
-    });
-  
-    // Get the suggestions list (should be visible after typing)
-    const suggestionsList = document.querySelector('.suggestions');
-  
-    // Get all the list items in the suggestions list
-    const suggestionItems = suggestionsList.querySelectorAll('li');
-  
+    // Wait for the suggestions list to update
+    const suggestionItems = await screen.findAllByRole('listitem');
+    
     // Assert that the suggestions list contains only one item: "See all cities"
-    expect(suggestionItems.length).toBe(1); // Only one suggestion item should be shown
+    expect(suggestionItems).toHaveLength(1); // Only one suggestion item should be shown
     expect(suggestionItems[0].textContent).toBe('See all cities'); // It should be "See all cities"
   });
-
 
   test('renders text input', () => {
     const cityTextBox = citySearchComponent.queryByRole('textbox');
@@ -103,14 +101,20 @@ describe('<CitySearch /> component', ()  => {
     
     // Type 'Berlin' into the input field
     await user.type(cityTextBox, 'Berlin');
+    
+    // Ensure the suggestions list is visible after typing
+    const suggestionList = await screen.findByRole('list');
+    expect(suggestionList).toBeInTheDocument();
+  
     // Clear the input field
     await user.clear(cityTextBox);
     
-    // Check if the suggestions list is hidden
-    const suggestionList = citySearchComponent.queryByRole('list');
-    expect(suggestionList).not.toBeInTheDocument();
-});
-
+    // Wait for the suggestions list to be removed
+    await waitFor(() => {
+      const suggestionList = citySearchComponent.queryByRole('list');
+      expect(suggestionList).not.toBeVisible;
+    });
+  });
 
 });
 

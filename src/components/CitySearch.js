@@ -17,6 +17,12 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
     setQuery(city);
     setSuggestions(filteredLocations);
 
+    if (city === '') {
+      setShowSuggestions(false);
+    } else {
+      setShowSuggestions(true)
+    }
+
     let infoText;
     if (filteredLocations.length === 0) {
       infoText = "We can not find the city you are looking for. Please try another city"
