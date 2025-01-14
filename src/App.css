@@ -31,21 +31,21 @@ h4{
 
 
 .cityError-Message {
-  float: left;
-  top: 0px;
+  position:absolute;
+  top: 270px;
   margin-top: -55px;
-  margin-left: 200px;
+  margin-left: 80px;
   width: 250px;
   z-index: 1000;
 }
 
 
 .cityNumber-Message {
-  float:left;
-  top: 0px;
-  margin-left: 240px;
+  position:absolute;
+  top: 370px;
+  margin-left: 150px;
   margin-top: -50px;
-  width: 250px;
+  width: 200px;
   z-index: 1000;
 }
 
