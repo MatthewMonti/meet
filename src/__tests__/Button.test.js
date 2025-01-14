@@ -4,7 +4,7 @@ import { render, screen, within, waitFor, fireEvent } from '@testing-library/rea
 describe('<Button /> component', () => {
   beforeEach(async () => {
     render(<Button event={{ description: 'Test event description.' }} />);
-    await waitFor(() => screen.getByText('Show Details')); // Wait for the "Show Details" button to appear
+    await waitFor(() => screen.getByText('show details')); // Wait for the "Show Details" button to appear
   });
 
   test('renders Button', () => {
@@ -19,7 +19,7 @@ describe('<Button /> component', () => {
     expect(screen.queryByText(eventDescription)).toBeNull();
 
     // Button should display "Show Details"
-    const button = await screen.findByText('Show Details'); // Use findByText for more flexibility
+    const button = await screen.findByText('show details'); // Use findByText for more flexibility
     expect(button).toBeInTheDocument();
 
     // Click the button to show the details
@@ -29,15 +29,15 @@ describe('<Button /> component', () => {
     expect(screen.getByText(eventDescription)).toBeInTheDocument();
 
     // The button text should now be "Hide Details"
-    expect(screen.getByText('Hide Details')).toBeInTheDocument();
+    expect(screen.getByText('hide details')).toBeInTheDocument();
 
     // Click the button to hide the details again
-    fireEvent.click(screen.getByText('Hide Details'));
+    fireEvent.click(screen.getByText('hide details'));
 
     // After clicking, the event description should be hidden again
     expect(screen.queryByText(eventDescription)).toBeNull();
 
     // The button text should revert back to "Show Details"
-    expect(screen.getByText('Show Details')).toBeInTheDocument();
+    expect(screen.getByText('show details')).toBeInTheDocument();
   });
 });

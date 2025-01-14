@@ -21,7 +21,7 @@ describe('<Button /> Puppeteer Test', () => {
 
     // Initially, the button text should be "Show Details"
     const buttonText = await page.evaluate(el => el.textContent, button);
-    expect(buttonText).toBe('Show Details');
+    expect(buttonText).toBe('show details');
 
     // Click the button to show details
     await button.click();
