@@ -122,21 +122,14 @@ button{
 
 @media (min-width: 300px) {
   
-  .cityError-Message {
-    margin-top: 50px;;
-    width: 250px;
-    z-index: 1000;
-    margin-left:60px;
-  }
-  
-  
-  .cityNumber-Message {
-    width: 200px;
-    z-index: 1000;
-    margin-left:90px;
-  }
 
-
+  .Alert{
+    position: relative;
+    width: 225px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+  }
 
   li.event {
     max-width: 200px; /* Still fixed but make sure it’s appropriate for small screens */
@@ -169,18 +162,12 @@ button{
 @media (min-width: 400px) {
 
 
-  .cityError-Message {
-    margin-top: 50px;;
-    width: 250px;
-    z-index: 1000;
-    margin-left:90px;
-  }
-  
-  
-  .cityNumber-Message {
-    width: 200px;
-    z-index: 1000;
-    margin-left:120px;
+  .Alert{
+    position: relative;
+    width: 225px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
   }
 
   ul.list-event{
@@ -216,7 +203,13 @@ button{
 }
 
 @media (min-width: 500px) {
-
+  .Alert{
+    position: relative;
+    width: 225px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+  }
   ul.list-event{
     margin-left:auto;
     margin-right:auto;
@@ -256,6 +249,14 @@ button{
 }
 
 @media (min-width: 700px) {
+
+  .Alert{
+    position: relative;
+    width: 225px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+  }
 
   ul.list-event{
     margin-left:auto;
