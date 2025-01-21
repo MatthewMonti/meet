@@ -40,11 +40,13 @@ const App = () => {
         {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
       </div>
       <CitySearch 
+        //DATA FLOW REACT TOP TO DOWN AND UPDATE BY USER INTERACTION
         allLocations={allLocations} 
         setCurrentCity={setCurrentCity} 
         setInfoAlert={setInfoAlert} 
         />
       <NumberOfEvents 
+        //DATA FLOW REACT TOP TO DOWN AND UPDATE BY USER INTERACTION
         currentNOE={currentNOE}
         setCurrentNOE={setCurrentNOE}
         setErrorAlert={setErrorAlert} 
