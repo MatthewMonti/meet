@@ -28,6 +28,7 @@ const removeQuery = () => {
     window.history.pushState("", "", newurl);
   }
 };
+/*
 
 const checkToken = async (accessToken) => {
   const response = await fetch(
@@ -36,7 +37,7 @@ const checkToken = async (accessToken) => {
   const result = await response.json();
   return result;
 };
-
+/*
 /**
  *
  * This function will fetch the list of all events
@@ -46,7 +47,7 @@ export const getEvents = async () => {
     return mockData;
   }
 
-  const token = await getAccessToken();
+ // const token = await getAccessToken();
 
   if (token) {
     removeQuery();
@@ -58,7 +59,7 @@ export const getEvents = async () => {
     } else return null; 
   }
 };
-
+/*
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const response = await fetch(
@@ -90,3 +91,4 @@ export const getAccessToken = async () => {
       }
   return accessToken;
 }
+*/
