@@ -13,7 +13,6 @@
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "uri-js": "^4.4.1",
-    "vite-plugin-pwa": "^0.21.1",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.6.0",
     "workbox-broadcast-update": "^6.6.0",
@@ -28,17 +27,13 @@
     "workbox-strategies": "^6.6.0",
     "workbox-streams": "^6.6.0"
   },
-  "alias": {
-    "process": "process/browser"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "dev": "parcel public/index.html"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -64,7 +59,6 @@
     "@parcel/transformer-webmanifest": "^2.13.3",
     "gh-pages": "^6.1.1",
     "jest-cucumber": "^4.5.0",
-    "process": "^0.11.10",
     "puppeteer": "18.1.0"
   }
 }
