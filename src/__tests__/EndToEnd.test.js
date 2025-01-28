@@ -5,7 +5,7 @@ describe('<Button /> Puppeteer Test', () => {
   let page;
 
   beforeAll(async () => {
-    browser = await puppeteer.launch({ headless: false, slowMo: 100 });
+    browser = await puppeteer.launch({ headless: false, slowMo: 50 });
     page = await browser.newPage();
     await page.goto('http://localhost:3000/');
   });
@@ -27,16 +27,18 @@ describe('<Button /> Puppeteer Test', () => {
     await button.click();
 
     // Wait for the description to appear
-    await page.waitForTimeout(500); // Ensure this matches the component delay
-    const eventDetails = await page.$eval('p', el => el.textContent);
-    expect(eventDetails).toBeTruthy;
+    await page.waitForTimeout(200); // Ensure this matches the component delay
+    const eventDetails = await page.$eval('p.eventDetails', el => el.textContent);
+    expect(eventDetails).toBeTruthy();
 
     // Click the button to hide details
     await button.click();
 
     // Wait for the description to disappear
     await page.waitForTimeout(500);
-    const hiddenDetails = await page.$('p');
-    expect(hiddenDetails).toBeFalsy; // Ensure the description is not rendered
+
+    // Check if the element is removed from the DOM
+    const isElementRemoved = await page.$('p.eventDetails');
+    expect(isElementRemoved).toBeNull(); // Ensure the description is removed from the DOM
   });
 });

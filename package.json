@@ -29,9 +29,8 @@
     "workbox-streams": "^6.6.0"
   },
   "alias": {
-  "process": "process/browser"
+    "process": "process/browser"
   },
-
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -60,11 +59,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@parcel/packager-raw-url": "^2.13.3",
     "@parcel/transformer-webmanifest": "^2.13.3",
     "gh-pages": "^6.1.1",
     "jest-cucumber": "^4.5.0",
     "process": "^0.11.10",
-    "puppeteer": "^18.1.0"
+    "puppeteer": "18.1.0"
   }
 }
