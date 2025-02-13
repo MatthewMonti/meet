@@ -3,13 +3,6 @@ import mockData from "../mock-data";
 import { render, screen } from '@testing-library/react';
 const event = mockData[0];
 
-const formattedStartTime = new Date(event.start.dateTime).toLocaleString('en-US', {
-  timeZone: event.start.timeZone,
-});
-
-const formattedEndTime = new Date(event.end.dateTime).toLocaleString('en-US', {
-  timeZone: event.end.timeZone,
-});
 
 describe('<Event /> component', () => {
   let eventComponent;
